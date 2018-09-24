@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from .forms import ContactForm, LoginForm, RegisterForm
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+#from .forms import ContactForm, LoginForm, RegisterForm
+from django.contrib.auth import authenticate, login, get_user_model
 
 
 def home_page(request):
@@ -17,6 +17,7 @@ def login_page(request):
     }
     return render(request,"auth/login.html",context)
 
+User = get_user_model()
 def register_page(request):
     form = RegisterForm(request.POST or None)
     print(request.user.is_authenticated())
