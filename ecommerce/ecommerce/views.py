@@ -7,6 +7,10 @@ from django.contrib.auth import authenticate, login, get_user_model
 def home_page(request):
     return render(request,"home_page.html",{})
 
+def about_page(request):
+    return render(request,"home_page.html",{})
+
+
 def login_page(request):
     form = LoginForm(request.POST or None)
     print(request.user.is_authenticated())
